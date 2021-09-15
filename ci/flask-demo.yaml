@@ -8,8 +8,8 @@ spec:
     image: gcr.io/kaniko-project/executor:latest
     args:
     - "--dockerfile=Dockerfile"
-    - "--context=git://github.com/$GITHUB_ID/SimpleWhaleDemo.git"
-    - "--destination=$DOCKER_IO/simplewhale"
+    - "--context=git://github.com/$GITHUB_ID/flask-demo.git"
+    - "--destination=$GITHUB_ID/flask-demo"
     volumeMounts:
     - name: kaniko-secret
       mountPath: /kaniko/.docker
