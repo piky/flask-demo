@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-demo-deployment
+  labels:
+    app: flask-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-demo
+  template:
+    metadata:
+      labels:
+        app: flask-demo
+    spec:
+      containers:
+      - name: flask-demo
+        image: ghcr.io/piky/flask-demo
+        ports:
+        - containerPort: 5000
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom: 
+            secretKeyRef:
+              name: mysqldb
+              key: mysql-root-password
+      imagePullSecrets:
+        - name: regcred
