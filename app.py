@@ -4,7 +4,7 @@ from flask import Flask
 from . import settings
 
 app = Flask(__name__)
-app.config.from_object("flask-demo.settings")
+app.config.from_object("app.settings")
 
 @app.route('/')
 def hello_world():
