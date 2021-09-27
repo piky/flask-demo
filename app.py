@@ -1,7 +1,7 @@
 import mysql.connector
 import json
 from flask import Flask
-from . import settings
+from .settings import settings
 
 app = Flask(__name__)
 app.config.from_object("app.settings")
