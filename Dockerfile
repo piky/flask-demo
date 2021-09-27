@@ -2,6 +2,9 @@
 
 FROM python:3.8-slim-buster
 
+ENV PATH="/app:${PATH}" \
+    PYTHONPATH=/app
+
 WORKDIR /app
 
 COPY requirements.txt requirements.txt
