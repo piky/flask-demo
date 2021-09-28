@@ -3,8 +3,8 @@ import os
 # Database authentication settings
 class Config(object):
     TESTING = False
-    
-class DevelopmentConfig(Config):
+
+class DBConfig(Config):
     DB_SERVER = 'mysqldb'
     DB_URI = 'inventory'
     DB_USER = 'root'

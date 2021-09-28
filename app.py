@@ -1,10 +1,10 @@
 import mysql.connector
 import json
 from flask import Flask
-from settings import DevelopmentConfig
+from settings import DBConfig
 
 app = Flask(__name__)
-app.config.from_object(DevelopmentConfig())
+app.config.from_object(DBConfig())
 
 @app.route('/')
 def hello_world():
@@ -13,10 +13,10 @@ def hello_world():
 @app.route('/widgets')
 def get_widgets() :
   mydb = mysql.connector.connect(
-    host=DevelopmentConfig.DB_SERVER,
-    user=DevelopmentConfig.DB_USER,
-    password=DevelopmentConfig.DB_PASSWORD,
-    database=DevelopmentConfig.DB_URI
+    host=DBConfig.DB_SERVER,
+    user=DBConfig.DB_USER,
+    password=DBConfig.DB_PASSWORD,
+    database=DBConfig.DB_URI
   )
   cursor = mydb.cursor()
 
@@ -37,9 +37,9 @@ def get_widgets() :
 @app.route('/initdb')
 def db_init():
   mydb = mysql.connector.connect(
-    host=DevelopmentConfig.DB_SERVER,
-    user=DevelopmentConfig.DB_USER,
-    password=DevelopmentConfig.DB_PASSWORD
+    host=DBConfig.DB_SERVER,
+    user=DBConfig.DB_USER,
+    password=DBConfig.DB_PASSWORD
   )
   cursor = mydb.cursor()
 
@@ -48,10 +48,10 @@ def db_init():
   cursor.close()
 
   mydb = mysql.connector.connect(
-    host=DevelopmentConfig.DB_SERVER,
-    user=DevelopmentConfig.DB_USER,
-    password=DevelopmentConfig.DB_PASSWORD,
-    database=DevelopmentConfig.DB_URI
+    host=DBConfig.DB_SERVER,
+    user=DBConfig.DB_USER,
+    password=DBConfig.DB_PASSWORD,
+    database=DBConfig.DB_URI
   )
   cursor = mydb.cursor()
 
