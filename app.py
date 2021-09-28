@@ -13,10 +13,10 @@ def hello_world():
 @app.route('/widgets')
 def get_widgets() :
   mydb = mysql.connector.connect(
-    host="mysqldb",
-    user="root",
+    host=settings.DB_SERVER,
+    user=settings.DB_USER,
     password=settings.DB_PASSWORD,
-    database="inventory"
+    database=settings.DB_URI
   )
   cursor = mydb.cursor()
 
@@ -37,8 +37,8 @@ def get_widgets() :
 @app.route('/initdb')
 def db_init():
   mydb = mysql.connector.connect(
-    host="mysqldb",
-    user="root",
+    host=settings.DB_SERVER,
+    user=settings.DB_USER,
     password=settings.DB_PASSWORD
   )
   cursor = mydb.cursor()
@@ -48,10 +48,10 @@ def db_init():
   cursor.close()
 
   mydb = mysql.connector.connect(
-    host="mysqldb",
-    user="root",
+    host=settings.DB_SERVER,
+    user=settings.DB_USER,
     password=settings.DB_PASSWORD,
-    database="inventory"
+    database=settings.DB_URI
   )
   cursor = mydb.cursor()
 
