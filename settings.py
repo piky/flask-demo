@@ -1,6 +1,9 @@
 import os
 
 # Database authentication settings
+class Config(object):
+    TESTING = False
+    
 class DevelopmentConfig(Config):
     DB_SERVER = 'mysqldb'
     DB_URI = 'inventory'
