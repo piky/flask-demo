@@ -1,10 +1,10 @@
 import mysql.connector
 import json
 from flask import Flask
-from . import settings
+from settings import DevelopmentConfig
 
 app = Flask(__name__)
-app.config.from_object('settings.DevelopmentConfig')
+app.config.from_object(DevelopmentConfig())
 
 @app.route('/')
 def hello_world():
