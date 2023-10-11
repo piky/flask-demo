@@ -1,3 +1,4 @@
+"""A demo app for Flask framework"""
 import json
 import mysql.connector
 from flask import Flask
