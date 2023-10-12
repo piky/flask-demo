@@ -6,12 +6,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    """Response message function"""
     return 'Hello, Python!'
 
 @app.route('/widgets')
 def get_widgets():
-    """Get row"""
     mydb = mysql.connector.connect(
         host="mysqldb",
         user="root",
@@ -36,7 +34,6 @@ def get_widgets():
 
 @app.route('/initdb')
 def db_init():
-    """Initialize database"""
     mydb = mysql.connector.connect(
         host="mysqldb",
         user="root",
