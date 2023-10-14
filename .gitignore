@@ -161,3 +161,6 @@ cython_debug/
 
 # CodeQL
 codeql/
+
+# MacOS's attribute file
+.DS_Store
